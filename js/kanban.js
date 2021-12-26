@@ -21,19 +21,24 @@ const create_item = () => {
   item.setAttribute('id', `item-${order}`);
   item.draggable = true;
 
+
   item.addEventListener('dragstart', (event) => {
     event.dataTransfer.setData('text', event.target.id);
   });
+
 
   item.addEventListener('dragend', (event) => {
     event.dataTransfer.clearData();
   })
 
+
   let input = document.createElement('input');
   item.appendChild(input);
 
+
   let save_btn = document.createElement('button');
   save_btn.innerHTML = "Save";
+
 
   save_btn.addEventListener('click', () => {
     error.innerHTML = "";
@@ -46,7 +51,9 @@ const create_item = () => {
     }
   });
 
+
   item.appendChild(save_btn);
+
 
   return item;
 };
@@ -60,6 +67,7 @@ document.querySelectorAll('.drop').forEach(element => {
     event.target.appendChild(document.getElementById(id));
   })
 
+  
   element.addEventListener('dragover', (event) => {
     event.preventDefault();
   })
